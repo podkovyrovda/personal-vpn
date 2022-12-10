@@ -6,6 +6,7 @@ CLIENT_PRIVATE_KEY=$(wg genkey | tee /etc/wireguard/${CLIENT_ID}_privatekey)
 CLIENT_PUBLIC_KEY=$(wg pubkey | tee /etc/wireguard/${CLIENT_ID}_publickey)
 
 cat << EOF >> /etc/wireguard/wg0.conf
+
 [Peer]
   PublicKey = $CLIENT_PUBLIC_KEY
   AllowedIPs = 10.0.0.2/32

@@ -2,6 +2,7 @@ apt update && apt upgrade -y
 apt install -y wireguard
 
 SERVER_PRIVATE_KEY=$(wg genkey | tee /etc/wireguard/privatekey)
+wg pubkey | tee /etc/wireguard/publickey
 NETWORK_SERVICE_NAME=eth0 #TODO: может быть другим, найти грепом в `ip a`?
 
 chmod 600 /etc/wireguard/privatekey
